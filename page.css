@@ -1,0 +1,39 @@
+.myDiv1 {
+  	width: 5vw;
+	height:5vw;
+  /*width: 5%;*/
+  /*height: 5%;*/
+  border: 2px outset blue;
+  background-color: lightblue;
+ /*text-align: center;*/
+  cursor: pointer;
+  position:relative;
+  transform: translateX(-50%);
+  /*font-size: 100%;*/
+}
+
+.skill_level{
+	/*position:absolute;*/
+	/*font-size: 100%;*/
+	display: flex;
+	justify-content: flex-end;
+	align-self: flex-end;
+	text-align: right;
+	/*bottom:0;*/
+    /*right:0;*/
+/*	vertical-align: text-bottom;
+	height: 10px;
+    
+    */
+}
+
+.break {
+  flex-basis: 100%;
+  height: 50px;
+}
+
+.mainWindow {
+	width: 100%;
+  	display: flex;
+  	flex-wrap: wrap;
+}
