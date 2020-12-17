@@ -40,6 +40,11 @@ var getParams = function (url) {
 	var query = parser.search.substring(1);
 	return query;
 };
+
+var getHash = function (url) {
+	return url.split("#")[1];
+};
+
 count = 0;
 
 var bt;
@@ -101,7 +106,7 @@ function loadWindow(){
 
 
 console.log(window.location.href)
-console.log(getParams((window.location.href)));
+
 
 //loadWindow()
 
@@ -113,6 +118,10 @@ if(document.readyState === 'loading') {
 }
 
 console.log(document.getElementById("mainWindow"));
+
+window.location.hash = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"
+
+console.log((getHash(window.location.href)));
 
 // function divclick(){
 // 	var x = document.getElementById("div1");

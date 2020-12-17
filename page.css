@@ -1,24 +1,24 @@
 .myDiv1 {
-  	width: 5vw;
+		width: 5vw;
 	height:5vw;
-  /*width: 5%;*/
-  /*height: 5%;*/
-  border: 2px outset blue;
-  background-color: lightblue;
+	/*width: 5%;*/
+	/*height: 5%;*/
+	border: 2px outset blue;
+	background-color: lightblue;
  /*text-align: center;*/
-  cursor: pointer;
-  position:relative;
-  transform: translateX(-50%);
-  /*font-size: 100%;*/
-  padding: 0;
-  word-wrap: break-word
-  margin: 0;
+	cursor: pointer;
+	position:relative;
+	transform: translateX(-50%);
+	/*font-size: 100%;*/
+	padding: 0;
+	word-wrap: break-word
+	margin: 0;
 }
 
 .skill_level{
 	position:absolute;
 	bottom:-15px;
-  right:0;
+	right:0;
 	/*font-size: 100%;*/
 /*	display: flex;
 	justify-content: flex-end;
@@ -26,17 +26,33 @@
 	text-align: right;*/
 /*	vertical-align: text-bottom;
 	height: 10px;
-    
-    */
+		
+		*/
+}
+
+.Attribute_button {
+	/*flex-basis: 19%;*/
+	width: 19vw;
+	height: 5vw;
+	border: 2px outset blue;
+	background-color: lightblue;
+	/*text-align: center;*/
+	cursor: pointer;
+	position:relative;
+	/*transform: translateX(-50%);*/
+	/*font-size: 100%;*/
+	padding: 0;
+	word-wrap: break-word
+	margin: 0;
 }
 
 .break {
-  flex-basis: 100%;
-  height: 50px;
+	flex-basis: 100%;
+	height: 50px;
 }
 
 .mainWindow {
-	width: 1000px;
-  display: flex;
-  flex-wrap: wrap;
+	width: 100vw;
+	display: flex;
+	flex-wrap: wrap;
 }
