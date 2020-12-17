@@ -1,28 +1,37 @@
 var perks = [
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},//0
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},//4
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},//9
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},//10
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},//14
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},//19
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},//20
-	{name: "perk",effect: "effect",maxValue:1,actualValue:0},//21
+	{name: "perk",effect: "effect0",mV:3,aV:0},//0
+	{name: "perk",effect: "effect1",mV:3,aV:0},
+	{name: "perk",effect: "effect2",mV:3,aV:0},
+	{name: "perk",effect: "effect3",mV:3,aV:0},
+	{name: "perk",effect: "effect4",mV:3,aV:0},//4
+	{name: "perk",effect: "effect5",mV:3,aV:0},
+	{name: "perk",effect: "effect6",mV:3,aV:0},
+	{name: "perk",effect: "effect7",mV:3,aV:0},
+	{name: "perk",effect: "effect8",mV:3,aV:0},
+	{name: "perk",effect: "effect9",mV:3,aV:0},//9
+	{name: "perk",effect: "effect10",mV:3,aV:0},//10
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//14
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//19
+	{name: "perk",effect: "effect",mV:3,aV:0},//20
+	{name: "perk",effect: "effect",mV:3,aV:0},//21
 ]
 
+function tobase64(hsh){
+	var base64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_'
+	//n = math.ceil(highestbit(hsh)/6.0)#get the number of characters needed
+	// b64 = ""
+	// for i in range(n):
+	// 	b64 += base64[(hsh&63)]#get the least 6 significant bits
+	// 	hsh = hsh >> 6 #shifts the number right in 6 bits
+	// return b64
+}
 
 var getParams = function (url) {
 	var params = {};
@@ -32,6 +41,31 @@ var getParams = function (url) {
 	return query;
 };
 count = 0;
+
+var bt;
+
+function setClickAction(){
+	//console.log("cheguei");
+	bt = document.querySelectorAll(".myDiv1");
+	for (var i = 0; i < perks.length; i++) {
+		console.log(bt[i].title);
+		bt[i].addEventListener('click',clicounacoisa);
+	}
+}
+
+function clicounacoisa(){
+	//console.log(this.id);
+	var value = parseInt(this.id);
+	console.log(value);
+	if(perks[value].aV<perks[value].mV){
+		perks[value].aV++;
+	}
+	else{
+		perks[value].aV = 0;
+	}
+	var status = document.getElementById("level"+String(value));
+	status.innerHTML = String(perks[value].aV) + '/'+ String(perks[value].mV);
+}
 
 function loadWindow(){
 	var x = document.getElementById("mainWindow");
@@ -45,18 +79,21 @@ function loadWindow(){
 			position = 8+8*(i%7);
 		}
 		else if((~~(i/7) == 3)){
-			position = 50;
+			position = 58;
 		}
 
     	x.innerHTML += '<div title="' + String(perks[i].effect) +
-    	'" class = "myDiv1" id = "' + String(perks[i].name) + String(i+1) +'"'+
+    	'" class = "myDiv1" id = "' + String(i) +'"'+
     	 'style = "left:' + String(position) + '%;"> ' + String(perks[i].name) +
-    	 String(position)  +
-    	 '<p class="skill_level"> 1/2 </p>' + ' </div>\n';
+    	 String(i)  + 
+    	 '<p class="skill_level" id = "'+ 'level' + String(i) +'">' + String(perks[i].aV) + '/'+ String(perks[i].mV) + '</p>' + ' </div>\n';
     	if(((i+1)%7) == 0){
     		x.innerHTML += '<div class="break"></div>\n';
     	}
     }
+
+    setClickAction();
+
 }
 
 

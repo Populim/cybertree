@@ -10,17 +10,20 @@
   position:relative;
   transform: translateX(-50%);
   /*font-size: 100%;*/
+  padding: 0;
+  word-wrap: break-word
+  margin: 0;
 }
 
 .skill_level{
-	/*position:absolute;*/
+	position:absolute;
+	bottom:-15px;
+  right:0;
 	/*font-size: 100%;*/
-	display: flex;
+/*	display: flex;
 	justify-content: flex-end;
 	align-self: flex-end;
-	text-align: right;
-	/*bottom:0;*/
-    /*right:0;*/
+	text-align: right;*/
 /*	vertical-align: text-bottom;
 	height: 10px;
     
@@ -33,7 +36,7 @@
 }
 
 .mainWindow {
-	width: 100%;
-  	display: flex;
-  	flex-wrap: wrap;
+	width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
 }
