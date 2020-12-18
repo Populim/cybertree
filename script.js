@@ -1,4 +1,31 @@
+var all_perks = [];
+
 var perks = [
+	{name: "The Rock:",effect: "Enemies cannot knock you down.",mV:1,aV:0},//0
+	{name: "Cardio Cure",effect: "effect1",mV:1,aV:0},
+	{name: "Gladiator",effect: "effect2",mV:2,aV:0},
+	{name: "Pack Mule",effect: "effect3",mV:1,aV:0},
+	{name: "Epimorphosis",effect: "effect4",mV:1,aV:0},//4
+	{name: "Like a Butterfly",effect: "effect5",mV:2,aV:0},
+	{name: "Dog of War",effect: "effect6",mV:3,aV:0},
+	{name: "perk",effect: "effect7",mV:1,aV:0},
+	{name: "perk",effect: "effect8",mV:3,aV:0},
+	{name: "perk",effect: "effect9",mV:3,aV:0},//9
+	{name: "perk",effect: "effect10",mV:3,aV:0},//10
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//14
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//19
+	{name: "perk",effect: "effect",mV:3,aV:0},//20
+	{name: "perk",effect: "effect",mV:3,aV:0},//21
+]
+
+var annihilation = [
 	{name: "The Rock:<br>Passive",effect: "Enemies cannot knock you down.",mV:1,aV:0},//0
 	{name: "Cardio Cure",effect: "effect1",mV:1,aV:0},
 	{name: "Gladiator",effect: "effect2",mV:2,aV:0},
@@ -22,6 +49,268 @@ var perks = [
 	{name: "perk",effect: "effect",mV:3,aV:0},//20
 	{name: "perk",effect: "effect",mV:3,aV:0},//21
 ]
+
+var street_Brawler = [
+	{name: "The Rock:<br>Passive",effect: "Enemies cannot knock you down.",mV:1,aV:0},//0
+	{name: "Cardio Cure",effect: "effect1",mV:1,aV:0},
+	{name: "Gladiator",effect: "effect2",mV:2,aV:0},
+	{name: "Pack Mule",effect: "effect3",mV:1,aV:0},
+	{name: "Epimorphosis",effect: "effect4",mV:1,aV:0},//4
+	{name: "Like a Butterfly",effect: "effect5",mV:2,aV:0},
+	{name: "Dog of War",effect: "effect6",mV:3,aV:0},
+	{name: "perk",effect: "effect7",mV:1,aV:0},
+	{name: "perk",effect: "effect8",mV:3,aV:0},
+	{name: "perk",effect: "effect9",mV:3,aV:0},//9
+	{name: "perk",effect: "effect10",mV:3,aV:0},//10
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//14
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//19
+	{name: "perk",effect: "effect",mV:3,aV:0},//20
+	{name: "perk",effect: "effect",mV:3,aV:0},//21
+]
+
+// reflexes
+
+var assault = [
+	{name: "The Rock:<br>Passive",effect: "Enemies cannot knock you down.",mV:1,aV:0},//0
+	{name: "Cardio Cure",effect: "effect1",mV:1,aV:0},
+	{name: "Gladiator",effect: "effect2",mV:2,aV:0},
+	{name: "Pack Mule",effect: "effect3",mV:1,aV:0},
+	{name: "Epimorphosis",effect: "effect4",mV:1,aV:0},//4
+	{name: "Like a Butterfly",effect: "effect5",mV:2,aV:0},
+	{name: "Dog of War",effect: "effect6",mV:3,aV:0},
+	{name: "perk",effect: "effect7",mV:1,aV:0},
+	{name: "perk",effect: "effect8",mV:3,aV:0},
+	{name: "perk",effect: "effect9",mV:3,aV:0},//9
+	{name: "perk",effect: "effect10",mV:3,aV:0},//10
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//14
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//19
+	{name: "perk",effect: "effect",mV:3,aV:0},//20
+	{name: "perk",effect: "effect",mV:3,aV:0},//21
+]
+
+var handguns = [
+	{name: "The Rock:<br>Passive",effect: "Enemies cannot knock you down.",mV:1,aV:0},//0
+	{name: "Cardio Cure",effect: "effect1",mV:1,aV:0},
+	{name: "Gladiator",effect: "effect2",mV:2,aV:0},
+	{name: "Pack Mule",effect: "effect3",mV:1,aV:0},
+	{name: "Epimorphosis",effect: "effect4",mV:1,aV:0},//4
+	{name: "Like a Butterfly",effect: "effect5",mV:2,aV:0},
+	{name: "Dog of War",effect: "effect6",mV:3,aV:0},
+	{name: "perk",effect: "effect7",mV:1,aV:0},
+	{name: "perk",effect: "effect8",mV:3,aV:0},
+	{name: "perk",effect: "effect9",mV:3,aV:0},//9
+	{name: "perk",effect: "effect10",mV:3,aV:0},//10
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//14
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//19
+	{name: "perk",effect: "effect",mV:3,aV:0},//20
+	{name: "perk",effect: "effect",mV:3,aV:0},//21
+]
+
+var blades = [
+	{name: "The Rock:<br>Passive",effect: "Enemies cannot knock you down.",mV:1,aV:0},//0
+	{name: "Cardio Cure",effect: "effect1",mV:1,aV:0},
+	{name: "Gladiator",effect: "effect2",mV:2,aV:0},
+	{name: "Pack Mule",effect: "effect3",mV:1,aV:0},
+	{name: "Epimorphosis",effect: "effect4",mV:1,aV:0},//4
+	{name: "Like a Butterfly",effect: "effect5",mV:2,aV:0},
+	{name: "Dog of War",effect: "effect6",mV:3,aV:0},
+	{name: "perk",effect: "effect7",mV:1,aV:0},
+	{name: "perk",effect: "effect8",mV:3,aV:0},
+	{name: "perk",effect: "effect9",mV:3,aV:0},//9
+	{name: "perk",effect: "effect10",mV:3,aV:0},//10
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//14
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//19
+	{name: "perk",effect: "effect",mV:3,aV:0},//20
+	{name: "perk",effect: "effect",mV:3,aV:0},//21
+]
+
+// tech
+
+var crafting = [
+	{name: "The Rock:<br>Passive",effect: "Enemies cannot knock you down.",mV:1,aV:0},//0
+	{name: "Cardio Cure",effect: "effect1",mV:1,aV:0},
+	{name: "Gladiator",effect: "effect2",mV:2,aV:0},
+	{name: "Pack Mule",effect: "effect3",mV:1,aV:0},
+	{name: "Epimorphosis",effect: "effect4",mV:1,aV:0},//4
+	{name: "Like a Butterfly",effect: "effect5",mV:2,aV:0},
+	{name: "Dog of War",effect: "effect6",mV:3,aV:0},
+	{name: "perk",effect: "effect7",mV:1,aV:0},
+	{name: "perk",effect: "effect8",mV:3,aV:0},
+	{name: "perk",effect: "effect9",mV:3,aV:0},//9
+	{name: "perk",effect: "effect10",mV:3,aV:0},//10
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//14
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//19
+	{name: "perk",effect: "effect",mV:3,aV:0},//20
+	{name: "perk",effect: "effect",mV:3,aV:0},//21
+]
+
+//
+
+var engineering = [
+	{name: "The Rock:<br>Passive",effect: "Enemies cannot knock you down.",mV:1,aV:0},//0
+	{name: "Cardio Cure",effect: "effect1",mV:1,aV:0},
+	{name: "Gladiator",effect: "effect2",mV:2,aV:0},
+	{name: "Pack Mule",effect: "effect3",mV:1,aV:0},
+	{name: "Epimorphosis",effect: "effect4",mV:1,aV:0},//4
+	{name: "Like a Butterfly",effect: "effect5",mV:2,aV:0},
+	{name: "Dog of War",effect: "effect6",mV:3,aV:0},
+	{name: "perk",effect: "effect7",mV:1,aV:0},
+	{name: "perk",effect: "effect8",mV:3,aV:0},
+	{name: "perk",effect: "effect9",mV:3,aV:0},//9
+	{name: "perk",effect: "effect10",mV:3,aV:0},//10
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//14
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//19
+	{name: "perk",effect: "effect",mV:3,aV:0},//20
+	{name: "perk",effect: "effect",mV:3,aV:0},//21
+]
+
+// cool
+
+var stealth = [
+	{name: "The Rock:<br>Passive",effect: "Enemies cannot knock you down.",mV:1,aV:0},//0
+	{name: "Cardio Cure",effect: "effect1",mV:1,aV:0},
+	{name: "Gladiator",effect: "effect2",mV:2,aV:0},
+	{name: "Pack Mule",effect: "effect3",mV:1,aV:0},
+	{name: "Epimorphosis",effect: "effect4",mV:1,aV:0},//4
+	{name: "Like a Butterfly",effect: "effect5",mV:2,aV:0},
+	{name: "Dog of War",effect: "effect6",mV:3,aV:0},
+	{name: "perk",effect: "effect7",mV:1,aV:0},
+	{name: "perk",effect: "effect8",mV:3,aV:0},
+	{name: "perk",effect: "effect9",mV:3,aV:0},//9
+	{name: "perk",effect: "effect10",mV:3,aV:0},//10
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//14
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//19
+	{name: "perk",effect: "effect",mV:3,aV:0},//20
+	{name: "perk",effect: "effect",mV:3,aV:0},//21
+]
+
+var cold_blood = [
+	{name: "The Rock:<br>Passive",effect: "Enemies cannot knock you down.",mV:1,aV:0},//0
+	{name: "Cardio Cure",effect: "effect1",mV:1,aV:0},
+	{name: "Gladiator",effect: "effect2",mV:2,aV:0},
+	{name: "Pack Mule",effect: "effect3",mV:1,aV:0},
+	{name: "Epimorphosis",effect: "effect4",mV:1,aV:0},//4
+	{name: "Like a Butterfly",effect: "effect5",mV:2,aV:0},
+	{name: "Dog of War",effect: "effect6",mV:3,aV:0},
+	{name: "perk",effect: "effect7",mV:1,aV:0},
+	{name: "perk",effect: "effect8",mV:3,aV:0},
+	{name: "perk",effect: "effect9",mV:3,aV:0},//9
+	{name: "perk",effect: "effect10",mV:3,aV:0},//10
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//14
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//19
+	{name: "perk",effect: "effect",mV:3,aV:0},//20
+	{name: "perk",effect: "effect",mV:3,aV:0},//21
+]
+
+// intelligence
+
+var breach_protocol = [
+	{name: "The Rock:<br>Passive",effect: "Enemies cannot knock you down.",mV:1,aV:0},//0
+	{name: "Cardio Cure",effect: "effect1",mV:1,aV:0},
+	{name: "Gladiator",effect: "effect2",mV:2,aV:0},
+	{name: "Pack Mule",effect: "effect3",mV:1,aV:0},
+	{name: "Epimorphosis",effect: "effect4",mV:1,aV:0},//4
+	{name: "Like a Butterfly",effect: "effect5",mV:2,aV:0},
+	{name: "Dog of War",effect: "effect6",mV:3,aV:0},
+	{name: "perk",effect: "effect7",mV:1,aV:0},
+	{name: "perk",effect: "effect8",mV:3,aV:0},
+	{name: "perk",effect: "effect9",mV:3,aV:0},//9
+	{name: "perk",effect: "effect10",mV:3,aV:0},//10
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//14
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//19
+	{name: "perk",effect: "effect",mV:3,aV:0},//20
+	{name: "perk",effect: "effect",mV:3,aV:0},//21
+]
+
+var quickhacking = [
+	{name: "The Rock:<br>Passive",effect: "Enemies cannot knock you down.",mV:1,aV:0},//0
+	{name: "Cardio Cure",effect: "effect1",mV:1,aV:0},
+	{name: "Gladiator",effect: "effect2",mV:2,aV:0},
+	{name: "Pack Mule",effect: "effect3",mV:1,aV:0},
+	{name: "Epimorphosis",effect: "effect4",mV:1,aV:0},//4
+	{name: "Like a Butterfly",effect: "effect5",mV:2,aV:0},
+	{name: "Dog of War",effect: "effect6",mV:3,aV:0},
+	{name: "perk",effect: "effect7",mV:1,aV:0},
+	{name: "perk",effect: "effect8",mV:3,aV:0},
+	{name: "perk",effect: "effect9",mV:3,aV:0},//9
+	{name: "perk",effect: "effect10",mV:3,aV:0},//10
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//14
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:3,aV:0},//19
+	{name: "perk",effect: "effect",mV:3,aV:0},//20
+	{name: "perk",effect: "effect",mV:3,aV:0},//21
+]
+
+all_perks.push(perks);
 
 function to_binary(){
 	var nDig = 0
@@ -150,7 +439,28 @@ function setClickAction(){
 			bt[i].style.background = "lightblue";
 		}
 		bt[i].addEventListener('click',clicounacoisa);
+		bt[i].addEventListener('mouseover',showDescription);
 	}
+}
+
+function showDescription(){
+	var value = parseInt(this.id);
+	var div_desc;
+
+	div_desc = document.getElementById("description_name");
+	div_desc.innerHTML = "Name: " + perks[value].name;
+	
+	div_desc = document.getElementById("description_type");
+	div_desc.innerHTML = "Type: Passive";
+
+	div_desc = document.getElementById("description_effect");
+	div_desc.innerHTML = "Effect: " + perks[value].effect;
+	
+	div_desc = document.getElementById("description_required");
+	div_desc.innerHTML = "Attribute Level Required: "+"20";
+	
+	div_desc = document.getElementById("description_cl_ml");
+	div_desc.innerHTML = "Current level: " + String(perks[value].aV) + "/" + String(perks[value].mV);
 }
 
 function getURLHash(){
@@ -180,6 +490,8 @@ function clicounacoisa(){
 
 	var status = document.getElementById("level"+String(value));
 	status.innerHTML = String(perks[value].aV) + '/'+ String(perks[value].mV);
+	var status = document.getElementById("description_cl_ml");
+	status.innerHTML = "Current level: " + String(perks[value].aV) + "/" + String(perks[value].mV);
 	window.location.hash = binary_tobase64(to_binary());
 	//console.log(base64_tobinary(getURLHash()))
 }
@@ -235,34 +547,6 @@ if(document.readyState === 'loading') {
 
 console.log(document.getElementById("mainWindow"));
 
-//window.location.hash = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"
-
-console.log((getHash(window.location.href)));
+console.log((getURLHash()));
 
 to_binary();
-
-// function divclick(){
-// 	var x = document.getElementById("div1");
-// 	x.innerHTML = 
-// 	x.onclick = function() {
-// 		count++;
-// 		x.innerHTML = '<strong>clicou ' + String(count) +" vezes<\strong>";
-// 	}
-// }
-
-// function doFirst(){
-// 	var x = document.getElementById("canvas");
-// 	canvas = x.getContext("2d");
-// 	var width = x.width;
-// 	var height = x.height;
-// 	console.log(width);
-// 	x.onclick = function() { alert("hello world"); }
-// 	canvas.strokeRect(0,0,width,height);
-// 	canvas.strokeRect(10,10,60,60);
-// 	//var img = new Image();
-// 	//img.addEventListener('load', function(){
-// 	//	canvas.drawImage(img, 2, 2,width-5,height-5);
-// 	//});
-// 	//img.src = 'Athletics-Skill-Tree.jpg';
-// 	//canvas.drawImage(0,0,600,600);
-// }
