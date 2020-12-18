@@ -55,7 +55,10 @@ function fromBinary(hsh){
 			size = 2;
 		}
 		perks[i].aV = parseInt(hsh.slice(index, index+size),2);
-		console.log(perks[i].aV);
+		if(perks[i].aV.isNaN()){
+			perks[i].aV = 0;
+		}
+		//console.log(perks[i].aV);
 		index = index + size;
 	}
 }
@@ -184,6 +187,7 @@ function loadWindow(){
 	//console.log(x);
 
 	hash = getURLHash();
+	//if(hash.length <)
 	fromBinary(base64_tobinary(hash));
 	x.innerHTML = "";
 	console.log("teste")
