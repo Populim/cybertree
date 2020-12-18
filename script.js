@@ -402,7 +402,6 @@ function base64_tobinary(hsh){
 		}
 		final += binary;
 		//console.log(final.length);
-
 	}
 	return final;
 
@@ -420,12 +419,14 @@ var getHash = function (url) {
 	return url.split("#")[1];
 };
 
-count = 0;
+function getURLHash(){
+	return window.location.hash.slice(1,window.location.hash.length);
+}
 
-var bt;
 
 function setClickAction(){
 	//console.log("cheguei");
+	var bt;
 	bt = document.querySelectorAll(".myDiv1");
 	for (var i = 0; i < perks.length; i++) {
 		//console.log(bt[i].title);
@@ -463,9 +464,7 @@ function showDescription(){
 	div_desc.innerHTML = "Current level: " + String(perks[value].aV) + "/" + String(perks[value].mV);
 }
 
-function getURLHash(){
-	return window.location.hash.slice(1,window.location.hash.length);
-}
+
 
 function clicounacoisa(){
 	//console.log(this.id);
@@ -496,6 +495,10 @@ function clicounacoisa(){
 	//console.log(base64_tobinary(getURLHash()))
 }
 
+function loadAttributeMenu(){
+
+}
+
 function loadWindow(){
 	var x = document.getElementById("mainWindow");
 	//console.log(x);
@@ -504,20 +507,29 @@ function loadWindow(){
 	//if(hash.length <)
 	fromBinary(base64_tobinary(hash));
 	x.innerHTML = "";
-	console.log("teste")
+	console.log("teste");
     for (var i = 0; i < perks.length; i++ ){
 		//console.log("teste")
 		var position = 14+6*(i%7);
+		var margem = '';
 		if((~~(i/7) == 1)){
-			position = 8+8*(i%7);
+			margem = 'style = "margin-right: 1.5vw; margin-left: 1.5vw;" ';
+			//position = 8+8*(i%7);
 		}
 		else if((~~(i/7) == 3)){
-			position = 58;
+			//position = 58;
 		}
 
+
+
+		//'style = "margin-right: 2vw; margin-left: 2vw;"'		
+
+		//'style = "left:' + String(position) + '%;
+
     	x.innerHTML += '<div title="' + String(perks[i].effect) +
-    	'" class = "myDiv1" id = "' + String(i) +'"'+
-    	 'style = "left:' + String(position) + '%;"> ' + String(perks[i].name) +
+    	'" class = "myDiv1" id = "' + String(i) +'" '+
+    	margem +
+    	 '> ' + String(perks[i].name) +
     	 
     	 '<p class="skill_level" id = "'+ 'level' + String(i) +'">' + String(perks[i].aV) + '/'+ String(perks[i].mV) + '</p>' + ' </div>\n';
     	if(((i+1)%7) == 0){
@@ -536,12 +548,9 @@ function loadWindow(){
 console.log(window.location.href)
 
 
-//loadWindow()
-
 if(document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', loadWindow);
 } else {
-    //The DOMContentLoaded event has already fired. Just run the code.
     loadWindow();
 }
 
