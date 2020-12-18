@@ -1,27 +1,49 @@
 var perks = [
-	{name: "perk",effect: "effect0",mV:3,aV:0},//0
-	{name: "perk",effect: "effect1",mV:3,aV:0},
-	{name: "perk",effect: "effect2",mV:3,aV:0},
-	{name: "perk",effect: "effect3",mV:3,aV:0},
-	{name: "perk",effect: "effect4",mV:3,aV:0},//4
-	{name: "perk",effect: "effect5",mV:3,aV:0},
-	{name: "perk",effect: "effect6",mV:3,aV:0},
-	{name: "perk",effect: "effect7",mV:3,aV:0},
+	{name: "The Rock:<br>Passive",effect: "Enemies cannot knock you down.",mV:1,aV:0},//0
+	{name: "Cardio Cure",effect: "effect1",mV:1,aV:0},
+	{name: "Gladiator",effect: "effect2",mV:2,aV:0},
+	{name: "Pack Mule",effect: "effect3",mV:1,aV:0},
+	{name: "Epimorphosis",effect: "effect4",mV:1,aV:0},//4
+	{name: "Like a Butterfly",effect: "effect5",mV:2,aV:0},
+	{name: "Dog of War",effect: "effect6",mV:3,aV:0},
+	{name: "perk",effect: "effect7",mV:1,aV:0},
 	{name: "perk",effect: "effect8",mV:3,aV:0},
 	{name: "perk",effect: "effect9",mV:3,aV:0},//9
 	{name: "perk",effect: "effect10",mV:3,aV:0},//10
 	{name: "perk",effect: "effect",mV:3,aV:0},
-	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
 	{name: "perk",effect: "effect",mV:3,aV:0},
 	{name: "perk",effect: "effect",mV:3,aV:0},//14
+	{name: "perk",effect: "effect",mV:1,aV:0},
 	{name: "perk",effect: "effect",mV:3,aV:0},
-	{name: "perk",effect: "effect",mV:3,aV:0},
-	{name: "perk",effect: "effect",mV:3,aV:0},
+	{name: "perk",effect: "effect",mV:1,aV:0},
 	{name: "perk",effect: "effect",mV:3,aV:0},
 	{name: "perk",effect: "effect",mV:3,aV:0},//19
 	{name: "perk",effect: "effect",mV:3,aV:0},//20
 	{name: "perk",effect: "effect",mV:3,aV:0},//21
 ]
+
+function to_binary(){
+	var nDig = 0
+	for (var i = 0; i < perks.length; i++) {
+		if(perks[i].mV < 2){
+			nDig++;
+		}
+		else{
+			nDig = nDig + 2;
+		}
+	}
+	console.log(nDig);
+	binHash = ""
+	for (var i = 0; i < perks.length; i++) {
+		if(perks[i].mV > 1 && perks[i].aV < 2){
+			binHash += "0";
+		}
+		binHash += (perks[i].aV >>> 0).toString(2);
+		binHash += ",";
+	}
+	console.log(binHash);
+}
 
 function tobase64(hsh){
 	var base64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_'
@@ -70,6 +92,7 @@ function clicounacoisa(){
 	}
 	var status = document.getElementById("level"+String(value));
 	status.innerHTML = String(perks[value].aV) + '/'+ String(perks[value].mV);
+	to_binary();
 }
 
 function loadWindow(){
@@ -90,7 +113,7 @@ function loadWindow(){
     	x.innerHTML += '<div title="' + String(perks[i].effect) +
     	'" class = "myDiv1" id = "' + String(i) +'"'+
     	 'style = "left:' + String(position) + '%;"> ' + String(perks[i].name) +
-    	 String(i)  + 
+    	 
     	 '<p class="skill_level" id = "'+ 'level' + String(i) +'">' + String(perks[i].aV) + '/'+ String(perks[i].mV) + '</p>' + ' </div>\n';
     	if(((i+1)%7) == 0){
     		x.innerHTML += '<div class="break"></div>\n';
@@ -122,6 +145,8 @@ console.log(document.getElementById("mainWindow"));
 window.location.hash = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"
 
 console.log((getHash(window.location.href)));
+
+to_binary();
 
 // function divclick(){
 // 	var x = document.getElementById("div1");
