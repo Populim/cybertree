@@ -55,7 +55,7 @@ function fromBinary(hsh){
 			size = 2;
 		}
 		perks[i].aV = parseInt(hsh.slice(index, index+size),2);
-		if(perks[i].aV.isNaN()){
+		if(isNaN(perks[i].aV)){
 			perks[i].aV = 0;
 		}
 		//console.log(perks[i].aV);
