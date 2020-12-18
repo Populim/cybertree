@@ -1,5 +1,14 @@
+.hide {
+	width: 30vw;
+	height:10vw;
+	border: 5px outset blue;
+	background-color: #c7effc;
+	font-size: 150%;
+}
+
+
 .myDiv1 {
-		width: 5vw;
+	width: 5vw;
 	height:5vw;
 	/*width: 5%;*/
 	/*height: 5%;*/
@@ -19,15 +28,6 @@
 	position:absolute;
 	bottom:-15px;
 	right:0;
-	/*font-size: 100%;*/
-/*	display: flex;
-	justify-content: flex-end;
-	align-self: flex-end;
-	text-align: right;*/
-/*	vertical-align: text-bottom;
-	height: 10px;
-		
-		*/
 }
 
 .Attribute_button {
