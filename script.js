@@ -33,26 +33,85 @@ function to_binary(){
 			nDig = nDig + 2;
 		}
 	}
-	console.log(nDig);
-	binHash = ""
+	//console.log(nDig);
+	var binHash = ""
 	for (var i = 0; i < perks.length; i++) {
 		if(perks[i].mV > 1 && perks[i].aV < 2){
 			binHash += "0";
 		}
 		binHash += (perks[i].aV >>> 0).toString(2);
-		binHash += ",";
+		//binHash += ",";
 	}
-	console.log(binHash);
+	return binHash;
+	//console.log(binHash);
 }
 
-function tobase64(hsh){
-	var base64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_'
-	//n = math.ceil(highestbit(hsh)/6.0)#get the number of characters needed
-	// b64 = ""
-	// for i in range(n):
-	// 	b64 += base64[(hsh&63)]#get the least 6 significant bits
-	// 	hsh = hsh >> 6 #shifts the number right in 6 bits
-	// return b64
+function fromBinary(hsh){
+	var index = 0;
+	var size = 1;
+	for (var i = 0; i < perks.length; i++) {
+		size = 1;
+		if(perks[i].mV > 1){
+			size = 2;
+		}
+		perks[i].aV = parseInt(hsh.slice(index, index+size),2);
+		console.log(perks[i].aV);
+		index = index + size;
+	}
+}
+
+function binary_tobase64(hsh){
+	var base64_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_'
+	var base64 = "";
+	var index = 0;
+	var aux;
+	for (var i = 0; i < ~~((hsh.length+5)/6); i++) {
+		aux = parseInt(hsh.slice(index, index+6),2);
+		base64 += base64_chars[aux];
+		index = index + 6;
+	}
+	return base64;
+}
+
+function base64_tobinary(hsh){
+	var final = "";
+	var binary = "";
+	var aux;
+	for (var i = 0; i < hsh.length; i++) {
+		binary = "";
+		if(hsh[i] == '-'){
+			aux = 62;
+			binary += aux.toString(2);
+		}
+		else if(hsh[i] == '_'){
+			aux = 63;
+			binary += aux.toString(2);
+		}
+		else {
+			aux = hsh[i].charCodeAt(0);
+			//console.log(hsh[i],aux);
+			if(aux >= 65 && aux <= 90){
+				binary += (aux-65).toString(2);
+			}
+			else if(aux >= 97 && aux <= 122){
+				binary += (aux-97+26).toString(2);
+			}
+			else if(aux >= 48 && aux <= 57){
+				binary += (aux-48+52).toString(2);
+			}
+			else{
+				console.log("Erro");
+			}
+		}
+		for (var j = 0; j < 6-binary.length; j++) {
+			final += "0";
+		}
+		final += binary;
+		//console.log(final.length);
+
+	}
+	return final;
+
 }
 
 var getParams = function (url) {
@@ -75,29 +134,57 @@ function setClickAction(){
 	//console.log("cheguei");
 	bt = document.querySelectorAll(".myDiv1");
 	for (var i = 0; i < perks.length; i++) {
-		console.log(bt[i].title);
+		//console.log(bt[i].title);
+		if(perks[i].aV == 0){
+			bt[i].style.background = "#ffffff";
+		}
+		else if (perks[i].aV == perks[i].mV){
+			bt[i].style.background = "#d4af37";
+		}
+		else{
+			bt[i].style.background = "lightblue";
+		}
 		bt[i].addEventListener('click',clicounacoisa);
 	}
+}
+
+function getURLHash(){
+	return window.location.hash.slice(1,window.location.hash.length);
 }
 
 function clicounacoisa(){
 	//console.log(this.id);
 	var value = parseInt(this.id);
-	console.log(value);
+	//console.log(value);
 	if(perks[value].aV<perks[value].mV){
 		perks[value].aV++;
 	}
 	else{
 		perks[value].aV = 0;
 	}
+
+	if(perks[value].aV == 0){
+		this.style.background = "#ffffff";
+	}
+	else if (perks[value].aV == perks[value].mV){
+		this.style.background = "#d4af37";
+	}
+	else{
+		this.style.background = "lightblue";
+	}
+
 	var status = document.getElementById("level"+String(value));
 	status.innerHTML = String(perks[value].aV) + '/'+ String(perks[value].mV);
-	to_binary();
+	window.location.hash = binary_tobase64(to_binary());
+	//console.log(base64_tobinary(getURLHash()))
 }
 
 function loadWindow(){
 	var x = document.getElementById("mainWindow");
 	//console.log(x);
+
+	hash = getURLHash();
+	fromBinary(base64_tobinary(hash));
 	x.innerHTML = "";
 	console.log("teste")
     for (var i = 0; i < perks.length; i++ ){
@@ -142,7 +229,7 @@ if(document.readyState === 'loading') {
 
 console.log(document.getElementById("mainWindow"));
 
-window.location.hash = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"
+//window.location.hash = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"
 
 console.log((getHash(window.location.href)));
 
