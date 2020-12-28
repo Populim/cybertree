@@ -33,16 +33,31 @@
 }
 
 .Attribute_button {
-	/*flex-basis: 19%;*/
-	width: 15vw;
-	height: 5vw;
+	width: 10vw;
+	height: 3vw;
 	border: 2px outset blue;
 	background-color: lightblue;
-	/*text-align: center;*/
+	text-align: center;
 	cursor: pointer;
 	position:relative;
 	/*transform: translateX(-50%);*/
-	/*font-size: 100%;*/
+	font-size: 2vw;
+	padding: 0;
+	word-wrap: break-word;
+	margin-right: 1vw;
+	margin-left: 1vw;
+}
+
+.Skill_button {
+	width: 15vw;
+	height: 3vw;
+	border: 2px outset blue;
+	background-color: lightblue;
+	text-align: center;
+	cursor: pointer;
+	position:relative;
+	/*transform: translateX(-50%);*/
+	font-size: 2vw;
 	padding: 0;
 	word-wrap: break-word;
 	margin-right: 1vw;
